@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Mise à jour des repo
+    apt:
+      update_cache: yes
+
+  - name: Installation du package apache2
+    apt:
+      name: apache2
+      state: absent
+
+  - name: Ajout support PHP pour Apache
+    apt:
+      name: libapache2-mod-php
+      state: absent
